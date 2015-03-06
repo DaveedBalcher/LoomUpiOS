@@ -18,6 +18,8 @@
 		43309CA21A98DB670003A7BE /* PCF_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43309CA11A98DB670003A7BE /* PCF_AppTests.swift */; };
 		43309CE11A98FC130003A7BE /* OccupancyTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43309CE01A98FC130003A7BE /* OccupancyTracker.swift */; };
 		43309CE31A9935B50003A7BE /* LoomFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43309CE21A9935B50003A7BE /* LoomFeed.swift */; };
+		43E213F71AA9E93E00CAD9C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E213F61AA9E93E00CAD9C3 /* MapKit.framework */; };
+		43E213F91AA9E94600CAD9C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E213F81AA9E94600CAD9C3 /* CoreLocation.framework */; };
 		43ECACDE1A9A1C9200069C7A /* SampleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43ECACDD1A9A1C9200069C7A /* SampleLocation.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		43309CA11A98DB670003A7BE /* PCF_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCF_AppTests.swift; sourceTree = "<group>"; };
 		43309CE01A98FC130003A7BE /* OccupancyTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OccupancyTracker.swift; sourceTree = "<group>"; };
 		43309CE21A9935B50003A7BE /* LoomFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoomFeed.swift; sourceTree = "<group>"; };
+		43E213F61AA9E93E00CAD9C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		43E213F81AA9E94600CAD9C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		43ECACDD1A9A1C9200069C7A /* SampleLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43E213F91AA9E94600CAD9C3 /* CoreLocation.framework in Frameworks */,
+				43E213F71AA9E93E00CAD9C3 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +77,8 @@
 		43309C7A1A98DB660003A7BE = {
 			isa = PBXGroup;
 			children = (
+				43E213F81AA9E94600CAD9C3 /* CoreLocation.framework */,
+				43E213F61AA9E93E00CAD9C3 /* MapKit.framework */,
 				43309C851A98DB660003A7BE /* PCF App */,
 				43309C9E1A98DB670003A7BE /* PCF AppTests */,
 				43309C841A98DB660003A7BE /* Products */,
@@ -180,6 +188,11 @@
 					43309C821A98DB660003A7BE = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = L4NZ727S2F;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					43309C9A1A98DB670003A7BE = {
 						CreatedOnToolsVersion = 6.1.1;

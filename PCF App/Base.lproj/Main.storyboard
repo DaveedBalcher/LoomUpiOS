@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -140,37 +140,46 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXi-fG-uAq">
-                                <rect key="frame" x="0.0" y="572" width="96" height="28"/>
+                                <rect key="frame" x="0.0" y="549" width="131" height="51"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeM-7t-0xJ">
-                                        <rect key="frame" x="5" y="-2" width="87" height="31"/>
+                                        <rect key="frame" x="9" y="-3" width="80" height="31"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="16"/>
-                                        <state key="normal" title="New Location">
+                                        <state key="normal" title="Get Location">
                                             <color key="titleColor" red="0.1137254902" green="0.4039215686" blue="0.87450980389999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="getLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EWc-IQ-CPL"/>
+                                            <action selector="regionMonitoring:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jO1-UF-uXa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L1-NJ-2cc">
+                                        <rect key="frame" x="9" y="20" width="117" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="BA2-s7-iWH"/>
+                                            <constraint firstAttribute="width" constant="117" id="Vcf-L7-6NF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="16"/>
+                                        <state key="normal" title="Region Monitoring">
+                                            <color key="titleColor" red="0.11372549019607843" green="0.40392156862745099" blue="0.87450980392156863" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="regionMonitoring:" destination="BYZ-38-t0r" eventType="touchUpInside" id="utM-sf-NGG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="PeM-7t-0xJ" firstAttribute="centerX" secondItem="KXi-fG-uAq" secondAttribute="centerX" constant="0.5" id="Ofp-vp-u1R"/>
-                                    <constraint firstAttribute="height" constant="28" id="P7l-yz-7oc"/>
-                                    <constraint firstItem="PeM-7t-0xJ" firstAttribute="top" secondItem="KXi-fG-uAq" secondAttribute="top" constant="-2" id="Qx4-I2-xXB"/>
-                                    <constraint firstAttribute="width" constant="96" id="rGw-Fb-zII"/>
+                                    <constraint firstAttribute="bottom" secondItem="4L1-NJ-2cc" secondAttribute="bottom" id="FWz-Rs-RUd"/>
+                                    <constraint firstItem="PeM-7t-0xJ" firstAttribute="centerX" secondItem="KXi-fG-uAq" secondAttribute="centerX" constant="-16.5" id="Ofp-vp-u1R"/>
+                                    <constraint firstAttribute="height" constant="51" id="P7l-yz-7oc"/>
+                                    <constraint firstItem="PeM-7t-0xJ" firstAttribute="top" secondItem="KXi-fG-uAq" secondAttribute="top" constant="-3" id="Qx4-I2-xXB"/>
+                                    <constraint firstAttribute="width" constant="131" id="rGw-Fb-zII"/>
+                                    <constraint firstItem="4L1-NJ-2cc" firstAttribute="leading" secondItem="PeM-7t-0xJ" secondAttribute="leading" id="uKJ-on-Q9E"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L1-NJ-2cc">
-                                <rect key="frame" x="6" y="542" width="49" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="BA2-s7-iWH"/>
-                                    <constraint firstAttribute="width" constant="49" id="Vcf-L7-6NF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="0.11372549019607843" green="0.40392156862745099" blue="0.87450980392156863" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OOj-8C-UE9">
                                 <rect key="frame" x="150" y="494" width="300" height="30"/>
                                 <subviews>
@@ -212,7 +221,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PeM-7t-0xJ" firstAttribute="leading" secondItem="4L1-NJ-2cc" secondAttribute="trailing" constant="-50" id="0dC-gP-35q"/>
                             <constraint firstAttribute="centerX" secondItem="TO5-pL-9i5" secondAttribute="centerX" id="19B-RF-2Ns"/>
                             <constraint firstItem="OOj-8C-UE9" firstAttribute="top" secondItem="7Jx-dS-bwd" secondAttribute="bottom" constant="-5" id="4Pl-K1-1ni"/>
                             <constraint firstItem="3qK-WN-Z91" firstAttribute="leading" secondItem="myR-Ma-J4f" secondAttribute="trailing" constant="-90" id="7UG-jG-014"/>
@@ -225,7 +233,6 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KXi-fG-uAq" secondAttribute="bottom" id="SNw-MQ-5kl"/>
                             <constraint firstItem="3qK-WN-Z91" firstAttribute="top" secondItem="5OH-ed-DM9" secondAttribute="bottom" constant="111" id="Szj-Rh-pqu"/>
                             <constraint firstItem="myR-Ma-J4f" firstAttribute="height" secondItem="xpf-5o-l2S" secondAttribute="height" constant="164" id="TnL-AV-HdF"/>
-                            <constraint firstItem="PeM-7t-0xJ" firstAttribute="top" secondItem="4L1-NJ-2cc" secondAttribute="bottom" constant="-3" id="cTJ-jk-q3O"/>
                             <constraint firstItem="xpf-5o-l2S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-78" id="der-B4-awS"/>
                             <constraint firstItem="myR-Ma-J4f" firstAttribute="centerY" secondItem="VLL-4r-Vw9" secondAttribute="centerY" constant="135.5" id="g9X-VM-bG2"/>
                             <constraint firstItem="KXi-fG-uAq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="ioY-cs-CzI"/>
@@ -249,7 +256,6 @@
                         <outlet property="locationImageView" destination="myR-Ma-J4f" id="Qba-iP-k3T"/>
                         <outlet property="locationTitleLabel" destination="Ep5-tB-l6o" id="y9b-Oa-ZVM"/>
                         <outlet property="messagingTextField" destination="WCc-sQ-YAz" id="XxE-La-d9j"/>
-                        <outlet property="newLocationButton" destination="PeM-7t-0xJ" id="nVI-4U-3y4"/>
                         <outlet property="signUpButton" destination="4L1-NJ-2cc" id="vOA-2z-ce2"/>
                     </connections>
                 </viewController>

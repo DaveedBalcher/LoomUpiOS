@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate  {
 
     @IBOutlet weak var locationImageView: UIImageView!
     @IBOutlet weak var locationTitleLabel: UILabel!
@@ -29,12 +30,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var currentTime = "1:05 PM"
     var timedMessagesStarted = false
     
+    //Core Location Variables
+    var manager: CLLocationManager?
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Register the UITableViewCell class with the tableView
-        
-        
         self.locationFeedTableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
         
         locationFeedTableView.estimatedRowHeight = 44.0
@@ -42,11 +46,66 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         setUpSampleMessages()
         
+        //Instantiate location manager
+        manager = CLLocationManager()
+        manager?.delegate = self;
+        manager?.desiredAccuracy = kCLLocationAccuracyBest
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    //Core Location functions
+    @IBAction func getLocation(sender: AnyObject) {
+        let available = CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion)
+        manager?.requestWhenInUseAuthorization()
+        manager?.startUpdatingLocation()
+        
+        
+    }
+    
+    @IBAction func regionMonitoring(sender: AnyObject) {
+        manager?.requestAlwaysAuthorization()
+        
+        let currRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 37.411822, longitude: -121.941125), radius: 200, identifier: "Home")
+        manager?.startMonitoringForRegion(currRegion)
+        
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        manager.stopUpdatingLocation()
+        let location = locations[0] as CLLocation
+        let geoCoder = CLGeocoder()
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (data, error) -> Void in
+            let placeMarks = data as [CLPlacemark]
+            let loc: CLPlacemark = placeMarks[0]
+            
+//            self.mapView.centerCoordinate = location.coordinate
+            let addr = loc.locality
+            println("The address is " + addr)
+//            self.address.text = addr
+//            let reg = MKCoordinateRegionMakeWithDistance(location.coordinate, 1500, 1500)
+//            self.mapView.setRegion(reg, animated: true)
+//            self.mapView.showsUserLocation = true
+            
+        })
+    }
+    
+    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
+        NSLog("Entering region")
+    }
+    
+    func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
+        NSLog("Exit region")
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        NSLog("\(error)")
     }
     
     
